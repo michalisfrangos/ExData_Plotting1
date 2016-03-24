@@ -27,7 +27,6 @@ setwd(script.dir)
 # clear workspace
 rm(list = ls()) 
 
-library(R.utils)
 library(httr)
 library(plyr)
 library(dplyr)
@@ -36,9 +35,6 @@ library(dplyr)
 ## DOWNLOADING and UNZIPING DATA Function
 downloadDataFile <- function(fileUrl,zipFileName,fileName){
         
-        if (!file.exists("figure")){
-                dir.create("figure") # create figure folder if it doesnt exist
-        }
         
         if (!file.exists("downloads") & !file.exists("exdata_data_household_power_consumption")) {
                 message("- downloading data")
@@ -191,6 +187,6 @@ data <- loadData(fileName)
 
 graphics.off() 
 
-png(filename ="./figure/plot3.png", width = 480, height = 480)
+png(filename ="plot3.png", width = 480, height = 480)
 makePlot3(data)
 dev.off()
