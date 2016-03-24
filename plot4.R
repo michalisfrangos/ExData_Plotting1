@@ -167,7 +167,7 @@ makePlot4 <- function(data){
                 plot(Time,Global_active_power,
                      xlab = "", ylab = "Global Active Power", type ="l")
                 plot(Time,Voltage,
-                     xlab = "", ylab = "Voltage", type ="l")
+                     xlab = "datetime", ylab = "Voltage", type ="l")
         })
         makePlot3(data)
         with(data, plot(Time,Global_reactive_power,
