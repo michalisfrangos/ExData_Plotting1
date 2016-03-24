@@ -3,20 +3,6 @@
 # Michalis Frangos
 # frangos@frangos.eu
 
-# First we forked and cloned the following GitHub repository: 
-# https://github.com/rdpeng/ExData_Plotting1
-
-# Instructions:
-# Construct the plot and save it to a PNG file with a width of 480 pixels and
-# a height of 480 pixels.Name each of the plot files as plot1.png, plot2.png,etc.
-# Create a separate R code file (plot1.R, plot2.R, etc.) that constructs the
-# corresponding plot, i.e. code in plot1.R constructs the plot1.png plot. Your
-# code file should include code for reading the data so that the plot can be
-# fully reproduced. You must also include the code that creates the PNG file.
-
-
-
-
 # set working directory
 script.dir <- 'D:/FRANGOS_FOLDER/CoursesCertificates/Coursera_Spec_DataAnalysis_2016/ExploratoryDataAnalysis/ExData_Plotting1'
 
@@ -27,6 +13,7 @@ setwd(script.dir)
 # clear workspace
 rm(list = ls()) 
 
+library(R.utils)
 library(httr)
 library(plyr)
 library(dplyr)
@@ -106,30 +93,6 @@ loadData<- function(fileName){
         return(data)
 }
 
-makePlot1 <- function(data){
-        # define options 
-        plotNameString <- "plot1.png"
-        titleString <- "Global Active Power"
-        xlabelString <- "Global Active Power (kilowatts)"
-        ylableString <- "Frequency"
-        # plot
-        hist(data$Global_active_power,col = "red",
-             xlab = xlabelString, 
-             ylab = ylableString,
-             main = titleString, breaks = 20)
-}
-
-
-makePlot2 <- function(data){
-        # define options 
-        xlableString <- ""
-        ylableString <- "Global Active Power (kilowatts)"
-        
-        # plot
-        with(data,plot(Time,Global_active_power, 
-                       xlab = xlableString,
-                       ylab = ylableString, type = "l"))
-}
 
 makePlot3 <- function(data){
         # define options 
