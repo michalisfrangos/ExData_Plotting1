@@ -66,7 +66,7 @@ testDataFileSize <- function(fileName,maxFileSizeInGBytes=1){
 
 ## LOADING DATA; returns a data frame
 loadData<- function(fileName){
-        message("- loading data")
+        message("- loading data (takes some time)")
         
         # Find from text file which lines correspond to dates 2007-02-01 and 2007-02-02.
         x <- grep("^(1/2/2007|2/2/2007)",readLines(fileName),value=FALSE)
@@ -89,7 +89,7 @@ loadData<- function(fileName){
         x <- paste(dates, times)
         data$Time <- strptime(x, "%Y-%m-%d %H:%M:%S")
         
-        message("- data loaded (takes some time)")
+        message("- data loaded")
         return(data)
 }
 
@@ -112,8 +112,6 @@ makePlot2 <- function(data){
 fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 zipFileName <- "exdata_data_household_power_consumption"
 fileName <- "household_power_consumption.txt"
-
-maxFileSizeInGBytes = 1 # max data for file to play with in Gbytes 
 
 
 downloadDataFile(fileUrl,zipFileName,fileName)
